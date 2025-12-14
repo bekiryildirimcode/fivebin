@@ -15,10 +15,6 @@ Modern ve hafıza verimli bir kelime öğrenme uygulaması. Go ile geliştirilmi
 
 ## Kullanım
 
-### macOS'ta Çalıştırma
-
-1. `Vocabulary Learner.app` dosyasını çift tıklayın
-2. Uygulama otomatik olarak açılır (sözlük dosyası içine gömülü)
 
 ### Temel İşlemler
 
@@ -47,11 +43,6 @@ Bu uygulama **Cursor AI** ile geliştirilmiştir:
 - Kod yazılmadan, sadece doğal dil komutlarıyla
 - Streaming JSON parsing ile hafıza verimli çalışır
 - Tüm özellikler AI asistanı tarafından oluşturuldu
-
-## Sorun Giderme
-
-- **Uygulama açılmıyor**: macOS 11.0 veya üzeri gerekli
-- **Arama çalışmıyor**: Kelime tam eşleşme gerektirir (büyük/küçük harf duyarsız)
 
 ---
 
