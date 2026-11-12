@@ -1,49 +1,56 @@
-# Vocabulary Learner
+# fivebin
 
-Modern ve hafıza verimli bir kelime öğrenme uygulaması. Go ile geliştirilmiş, macOS'ta çalışır.
+Desktop vocabulary learner written in **Go** with a **Fyne** GUI.
 
-> 💡 **Not**: Bu uygulama Cursor AI asistanı kullanılarak kod yazmadan, sadece doğal dil komutlarıyla geliştirilmiştir.
+It keeps a large dictionary out of RAM by streaming JSON, supports search and random practice words, and stores personal notes per word.
 
-## Özellikler
+## Features
 
-- 🎯 **Hafıza Verimli**: Çok büyük sözlük dosyalarını RAM'e yüklemeden işler
-- 🔍 **Kelime Arama**: Hızlı arama özelliği
-- 🎲 **Rastgele Kelime**: Tekrarsız rastgele kelime öğrenme
-- ✏️ **Kişisel Notlar**: Her kelime için kendi notlarınızı kaydedin
-- 💾 **Otomatik Kayıt**: Notlarınız otomatik olarak kaydedilir
-- 🎨 **Modern Arayüz**: Temiz ve kullanıcı dostu tasarım
+- Streaming dictionary load (memory-friendly for large word lists)
+- Fast word search
+- Random word practice
+- Personal notes persisted to `user_meanings.json`
+- Embedded default dictionary (`resources/data.json`)
 
-## Kullanım
+## Requirements
 
+- Go 1.21+
+- OS packages required by [Fyne](https://docs.fyne.io/started/) on your platform (Linux: OpenGL / X11 or Wayland deps)
 
-### Temel İşlemler
+## Run
 
-- **Rastgele Kelime**: "🎲 New Word" butonuna tıklayın
-- **Kelime Ara**: Üstteki arama kutusuna kelime yazın ve Enter'a basın
-- **Not Kaydet**: Kelime için notlarınızı yazın ve "💾 Save Meaning" butonuna tıklayın
+```bash
+go mod download
+go run .
+```
 
-### Görüntülenen Bilgiler
+Optional custom dictionary file:
 
-- Kelime (büyük, ortalanmış)
-- Kelime türü (isim, fiil, vb.)
-- Seviye (A1, B2, vb.)
-- Telaffuz (US / UK)
-- Örnek cümleler
+```bash
+go run . /path/to/dictionary.json
+```
 
-## Teknik Bilgi
+Build:
 
-- **Dil**: Go
-- **GUI**: Fyne
-- **Sözlük**: Uygulamaya gömülü (resources/data.json)
-- **Notlar**: user_meanings.json dosyasında saklanır
+```bash
+go build -o fivebin .
+```
 
-## Geliştirme
+## Project layout
 
-Bu uygulama **Cursor AI** ile geliştirilmiştir:
-- Kod yazılmadan, sadece doğal dil komutlarıyla
-- Streaming JSON parsing ile hafıza verimli çalışır
-- Tüm özellikler AI asistanı tarafından oluşturuldu
+| File | Role |
+| --- | --- |
+| `main.go` | App bootstrap, dictionary path resolution |
+| `dictionary.go` | Streaming dictionary access |
+| `gui.go` | Fyne UI |
+| `user_meanings.go` | Personal notes storage |
+| `resources/data.json` | Embedded word list |
 
----
+## Stack
 
-**İyi öğrenmeler! 📚✨**
+- Language: Go
+- UI: Fyne v2
+
+## License
+
+MIT
